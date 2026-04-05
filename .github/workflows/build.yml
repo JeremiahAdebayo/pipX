@@ -32,15 +32,18 @@ jobs:
           distribution: "temurin"
           java-version: "21"
 
+      - name: Verify Flutter
+        run: flutter doctor
+
       - name: Build APK
         run: |
           flet build apk \
             --project "Lot Size Calculator" \
             --org com.jrmhadebayo \
-            --build-version "1.0.0" \
-            --flutter-path $FLUTTER_ROOT
+            --build-version "1.0.0"
         env:
           FLUTTER_ROOT: ${{ env.FLUTTER_ROOT }}
+          PATH: ${{ env.FLUTTER_ROOT }}/bin:${{ env.PATH }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
