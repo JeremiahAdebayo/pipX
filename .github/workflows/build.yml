@@ -31,12 +31,13 @@ jobs:
           distribution: "temurin"
           java-version: "21"
 
-      - name: Build APK
-        run: |
-          flet build apk \
-            --project "Lot Size Calculator" \
-            --org com.jrmhadebayo \
-            --build-version "1.0.0"
+     - name: Build APK
+  run: |
+    flet build apk \
+      --project "Lot Size Calculator" \
+      --org com.jrmhadebayo \
+      --build-version "1.0.0" \
+      --no-flutter
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
