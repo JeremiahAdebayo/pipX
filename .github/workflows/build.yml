@@ -24,6 +24,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.24.0"
+          channel: "stable"
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -31,13 +32,15 @@ jobs:
           distribution: "temurin"
           java-version: "21"
 
-     - name: Build APK
-  run: |
-    flet build apk \
-      --project "Lot Size Calculator" \
-      --org com.jrmhadebayo \
-      --build-version "1.0.0" \
-      --no-flutter
+      - name: Build APK
+        run: |
+          flet build apk \
+            --project "Lot Size Calculator" \
+            --org com.jrmhadebayo \
+            --build-version "1.0.0" \
+            --flutter-path $FLUTTER_ROOT
+        env:
+          FLUTTER_ROOT: ${{ env.FLUTTER_ROOT }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
