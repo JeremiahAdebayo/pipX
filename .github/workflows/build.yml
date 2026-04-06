@@ -36,6 +36,7 @@ jobs:
         run: |
           echo "y" | flet build apk \
             --project "Lot Size Calculator" \
+            --product-name "Lot Size Calc" \
             --org com.jrmhadebayo \
             --build-version "1.0.0"
 
