@@ -371,7 +371,7 @@ def show_calculator(page: ft.Page):
 # ── entry point ───────────────────────────────────────────────────────────────
 
 def build_ui(page: ft.Page):
-    page.title   = "Lot Size Calculator"
+    page.title   = "pipX"
     page.bgcolor = BG
     page.padding = 20
     page.theme_mode = ft.ThemeMode.DARK
